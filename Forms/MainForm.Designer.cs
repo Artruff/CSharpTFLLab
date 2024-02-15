@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,30 +56,50 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вызовСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.IOTextSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.InputTextBox = new System.Windows.Forms.RichTextBox();
+            this.OuputTabControl = new System.Windows.Forms.TabControl();
+            this.OutputTabPage = new System.Windows.Forms.TabPage();
+            this.LogTabPage = new System.Windows.Forms.TabPage();
+            this.InsertButton = new System.Windows.Forms.Button();
+            this.CutButton = new System.Windows.Forms.Button();
+            this.CopyButton = new System.Windows.Forms.Button();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.SaveFileButton = new System.Windows.Forms.Button();
+            this.OpenFileButton = new System.Windows.Forms.Button();
+            this.NewFileButton = new System.Windows.Forms.Button();
+            this.OutputTextBox = new System.Windows.Forms.RichTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.IndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilePathColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MessageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IOTextSplitContainer)).BeginInit();
+            this.IOTextSplitContainer.Panel1.SuspendLayout();
+            this.IOTextSplitContainer.Panel2.SuspendLayout();
+            this.IOTextSplitContainer.SuspendLayout();
+            this.OuputTabControl.SuspendLayout();
+            this.OutputTabPage.SuspendLayout();
+            this.LogTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // MenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.правкаToolStripMenuItem,
             this.текстToolStripMenuItem,
             this.пускToolStripMenuItem,
             this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "MenuStrip";
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(489, 24);
+            this.MenuStrip.TabIndex = 0;
+            this.MenuStrip.Text = "MenuStrip";
             // 
             // файлToolStripMenuItem
             // 
@@ -260,98 +280,263 @@
             // вызовСправкиToolStripMenuItem
             // 
             this.вызовСправкиToolStripMenuItem.Name = "вызовСправкиToolStripMenuItem";
-            this.вызовСправкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вызовСправкиToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.вызовСправкиToolStripMenuItem.Text = "Вызов справки";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
-            // button1
+            // IOTextSplitContainer
             // 
-            this.button1.Location = new System.Drawing.Point(12, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 46);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
+            this.IOTextSplitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IOTextSplitContainer.Location = new System.Drawing.Point(12, 79);
+            this.IOTextSplitContainer.Name = "IOTextSplitContainer";
+            this.IOTextSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // button2
+            // IOTextSplitContainer.Panel1
             // 
-            this.button2.Location = new System.Drawing.Point(64, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 46);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
+            this.IOTextSplitContainer.Panel1.Controls.Add(this.InputTextBox);
             // 
-            // button3
+            // IOTextSplitContainer.Panel2
             // 
-            this.button3.Location = new System.Drawing.Point(116, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 46);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
+            this.IOTextSplitContainer.Panel2.Controls.Add(this.OuputTabControl);
+            this.IOTextSplitContainer.Size = new System.Drawing.Size(467, 360);
+            this.IOTextSplitContainer.SplitterDistance = 189;
+            this.IOTextSplitContainer.TabIndex = 10;
             // 
-            // button4
+            // InputTextBox
             // 
-            this.button4.Location = new System.Drawing.Point(225, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(46, 46);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
+            this.InputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InputTextBox.Location = new System.Drawing.Point(4, 4);
+            this.InputTextBox.Name = "InputTextBox";
+            this.InputTextBox.Size = new System.Drawing.Size(460, 182);
+            this.InputTextBox.TabIndex = 0;
+            this.InputTextBox.Text = "";
             // 
-            // button5
+            // OuputTabControl
             // 
-            this.button5.Location = new System.Drawing.Point(277, 27);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(46, 46);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
+            this.OuputTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OuputTabControl.Controls.Add(this.OutputTabPage);
+            this.OuputTabControl.Controls.Add(this.LogTabPage);
+            this.OuputTabControl.Location = new System.Drawing.Point(8, 3);
+            this.OuputTabControl.Name = "OuputTabControl";
+            this.OuputTabControl.SelectedIndex = 0;
+            this.OuputTabControl.Size = new System.Drawing.Size(456, 161);
+            this.OuputTabControl.TabIndex = 0;
             // 
-            // button6
+            // OutputTabPage
             // 
-            this.button6.Location = new System.Drawing.Point(329, 27);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(46, 46);
-            this.button6.TabIndex = 6;
-            this.button6.UseVisualStyleBackColor = true;
+            this.OutputTabPage.Controls.Add(this.OutputTextBox);
+            this.OutputTabPage.Location = new System.Drawing.Point(4, 22);
+            this.OutputTabPage.Name = "OutputTabPage";
+            this.OutputTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.OutputTabPage.Size = new System.Drawing.Size(448, 135);
+            this.OutputTabPage.TabIndex = 0;
+            this.OutputTabPage.Text = "Вывод";
+            this.OutputTabPage.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // LogTabPage
             // 
-            this.button7.Location = new System.Drawing.Point(381, 27);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(46, 46);
-            this.button7.TabIndex = 7;
-            this.button7.UseVisualStyleBackColor = true;
+            this.LogTabPage.Controls.Add(this.dataGridView1);
+            this.LogTabPage.Location = new System.Drawing.Point(4, 22);
+            this.LogTabPage.Name = "LogTabPage";
+            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.LogTabPage.Size = new System.Drawing.Size(448, 135);
+            this.LogTabPage.TabIndex = 1;
+            this.LogTabPage.Text = "Логи";
+            this.LogTabPage.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // InsertButton
             // 
-            this.button8.Location = new System.Drawing.Point(433, 27);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(46, 46);
-            this.button8.TabIndex = 8;
-            this.button8.UseVisualStyleBackColor = true;
+            this.InsertButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Insert;
+            this.InsertButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.InsertButton.Location = new System.Drawing.Point(433, 27);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(46, 46);
+            this.InsertButton.TabIndex = 8;
+            this.InsertButton.UseVisualStyleBackColor = true;
+            // 
+            // CutButton
+            // 
+            this.CutButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Cut;
+            this.CutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CutButton.Location = new System.Drawing.Point(381, 27);
+            this.CutButton.Name = "CutButton";
+            this.CutButton.Size = new System.Drawing.Size(46, 46);
+            this.CutButton.TabIndex = 7;
+            this.CutButton.UseVisualStyleBackColor = true;
+            // 
+            // CopyButton
+            // 
+            this.CopyButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Copy;
+            this.CopyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CopyButton.Location = new System.Drawing.Point(329, 27);
+            this.CopyButton.Name = "CopyButton";
+            this.CopyButton.Size = new System.Drawing.Size(46, 46);
+            this.CopyButton.TabIndex = 6;
+            this.CopyButton.UseVisualStyleBackColor = true;
+            // 
+            // NextButton
+            // 
+            this.NextButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Next;
+            this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NextButton.Location = new System.Drawing.Point(277, 27);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(46, 46);
+            this.NextButton.TabIndex = 5;
+            this.NextButton.UseVisualStyleBackColor = true;
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Back;
+            this.BackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackButton.Location = new System.Drawing.Point(225, 27);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(46, 46);
+            this.BackButton.TabIndex = 4;
+            this.BackButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveFileButton
+            // 
+            this.SaveFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.SaveFile;
+            this.SaveFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveFileButton.Location = new System.Drawing.Point(116, 27);
+            this.SaveFileButton.Name = "SaveFileButton";
+            this.SaveFileButton.Size = new System.Drawing.Size(46, 46);
+            this.SaveFileButton.TabIndex = 3;
+            this.SaveFileButton.UseVisualStyleBackColor = true;
+            // 
+            // OpenFileButton
+            // 
+            this.OpenFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.OpenFile;
+            this.OpenFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenFileButton.Location = new System.Drawing.Point(64, 27);
+            this.OpenFileButton.Name = "OpenFileButton";
+            this.OpenFileButton.Size = new System.Drawing.Size(46, 46);
+            this.OpenFileButton.TabIndex = 2;
+            this.OpenFileButton.UseVisualStyleBackColor = true;
+            // 
+            // NewFileButton
+            // 
+            this.NewFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.NewFile;
+            this.NewFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NewFileButton.Location = new System.Drawing.Point(12, 27);
+            this.NewFileButton.Name = "NewFileButton";
+            this.NewFileButton.Size = new System.Drawing.Size(46, 46);
+            this.NewFileButton.TabIndex = 1;
+            this.NewFileButton.UseVisualStyleBackColor = true;
+            // 
+            // OutputTextBox
+            // 
+            this.OutputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OutputTextBox.Location = new System.Drawing.Point(7, 7);
+            this.OutputTextBox.Name = "OutputTextBox";
+            this.OutputTextBox.Size = new System.Drawing.Size(435, 122);
+            this.OutputTextBox.TabIndex = 0;
+            this.OutputTextBox.Text = "";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IndexColumn,
+            this.FilePathColumn,
+            this.RowColumn,
+            this.ColumnColumn,
+            this.MessageColumn});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(435, 122);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // IndexColumn
+            // 
+            this.IndexColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IndexColumn.FillWeight = 40F;
+            this.IndexColumn.HeaderText = "";
+            this.IndexColumn.Name = "IndexColumn";
+            this.IndexColumn.ReadOnly = true;
+            this.IndexColumn.Width = 40;
+            // 
+            // FilePathColumn
+            // 
+            this.FilePathColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FilePathColumn.FillWeight = 112.3096F;
+            this.FilePathColumn.HeaderText = "Путь к файлу";
+            this.FilePathColumn.Name = "FilePathColumn";
+            this.FilePathColumn.ReadOnly = true;
+            // 
+            // RowColumn
+            // 
+            this.RowColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.RowColumn.FillWeight = 40F;
+            this.RowColumn.HeaderText = "Строка";
+            this.RowColumn.Name = "RowColumn";
+            this.RowColumn.ReadOnly = true;
+            this.RowColumn.Width = 68;
+            // 
+            // ColumnColumn
+            // 
+            this.ColumnColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ColumnColumn.FillWeight = 40F;
+            this.ColumnColumn.HeaderText = "Колонка";
+            this.ColumnColumn.Name = "ColumnColumn";
+            this.ColumnColumn.ReadOnly = true;
+            this.ColumnColumn.Width = 75;
+            // 
+            // MessageColumn
+            // 
+            this.MessageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MessageColumn.FillWeight = 112.3096F;
+            this.MessageColumn.HeaderText = "Сообщение";
+            this.MessageColumn.Name = "MessageColumn";
+            this.MessageColumn.ReadOnly = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(489, 451);
+            this.Controls.Add(this.IOTextSplitContainer);
+            this.Controls.Add(this.InsertButton);
+            this.Controls.Add(this.CutButton);
+            this.Controls.Add(this.CopyButton);
+            this.Controls.Add(this.NextButton);
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.SaveFileButton);
+            this.Controls.Add(this.OpenFileButton);
+            this.Controls.Add(this.NewFileButton);
+            this.Controls.Add(this.MenuStrip);
+            this.MainMenuStrip = this.MenuStrip;
+            this.MinimumSize = new System.Drawing.Size(505, 490);
             this.Name = "MainForm";
-            this.Text = "MainForm";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Text = "Компилятор";
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
+            this.IOTextSplitContainer.Panel1.ResumeLayout(false);
+            this.IOTextSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IOTextSplitContainer)).EndInit();
+            this.IOTextSplitContainer.ResumeLayout(false);
+            this.OuputTabControl.ResumeLayout(false);
+            this.OutputTabPage.ResumeLayout(false);
+            this.LogTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +544,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
@@ -387,14 +572,26 @@
         private System.Windows.Forms.ToolStripMenuItem исходныйКодПрограToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вызовСправкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button NewFileButton;
+        private System.Windows.Forms.Button OpenFileButton;
+        private System.Windows.Forms.Button SaveFileButton;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Button CopyButton;
+        private System.Windows.Forms.Button CutButton;
+        private System.Windows.Forms.Button InsertButton;
+        private System.Windows.Forms.SplitContainer IOTextSplitContainer;
+        private System.Windows.Forms.RichTextBox InputTextBox;
+        private System.Windows.Forms.TabControl OuputTabControl;
+        private System.Windows.Forms.TabPage OutputTabPage;
+        private System.Windows.Forms.TabPage LogTabPage;
+        private System.Windows.Forms.RichTextBox OutputTextBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IndexColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FilePathColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MessageColumn;
     }
 }
 
