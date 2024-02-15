@@ -9,41 +9,35 @@ namespace CSharpTFLLab.Classes
 {
     internal class SimpleCorrectionManager : ICorrectionManager
     {
-        List<string> history;
         MainForm form;
-        String buffer;
         public SimpleCorrectionManager(MainForm form)
         {
             this.form = form;
-            buffer = "";
-            history = new List<string>();
         }
 
         public void Copy()
         {
-            buffer = form.InputTextBox.SelectedText;
+           form.InputTextBox.Copy();
         }
 
         public void Cut()
         {
-            Copy();
-            Delete();
+            form.InputTextBox.Cut();
         }
 
         public void Delete()
         {
-            form.InputTextBox.SelectedText.Remove(form.InputTextBox.SelectionStart, form.InputTextBox.SelectionLength);
+            form.InputTextBox.Text = form.InputTextBox.Text.Remove(form.InputTextBox.SelectionStart, form.InputTextBox.SelectionLength);
         }
 
         public void Paste()
         {
-            Delete();
-            form.InputTextBox.Text = form.InputTextBox.Text.Insert(form.InputTextBox.SelectionStart, buffer);
+            form.InputTextBox.Paste();
         }
 
         public void Redo()
         {
-
+            form.InputTextBox.Redo();
         }
 
         public void SelectAll()
@@ -53,7 +47,7 @@ namespace CSharpTFLLab.Classes
 
         public void Undo()
         {
-            throw new NotImplementedException();
+            form.InputTextBox.Undo();
         }
     }
 }

@@ -47,8 +47,7 @@ namespace CSharpTFLLab.Classes
                 string filePath = openFileDialog.FileName;
                 using (StreamReader sr = new StreamReader(filePath))
                 {
-                    string content = sr.ReadToEnd();
-                    form.InputTextBox.Text = content;
+                    form.InputTextBox.Text = sr.ReadToEnd();
                 }
                 curFile = filePath;
             }

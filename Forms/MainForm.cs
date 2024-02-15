@@ -14,7 +14,6 @@ namespace CSharpTFLLab
 {
     public partial class MainForm : Form
     {
-
         IShell shell_;
         internal IShell shell { get => shell_; }
 
@@ -32,6 +31,8 @@ namespace CSharpTFLLab
             InitializeComponent();
             shell_ = new SimpleShell();
             fileManager_ = new SimpleFileManager(this);
+            helpManager_ = new SimpleHelpManager();
+            correctionManager_ = new SimpleCorrectionManager(this);
         }
 
         private void NewFileButton_Click(object sender, EventArgs e)
@@ -59,9 +60,49 @@ namespace CSharpTFLLab
             shell.Execute(new Action(fileManager.Exit));
         }
 
-        private void InputTextBox_TextChanged(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
+            shell.Execute(new Action(correctionManager.Undo));
+        }
 
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.Redo));
+        }
+
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.Copy));
+        }
+
+        private void CutButton_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.Cut));
+        }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.Paste));
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.Delete));
+        }
+
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(correctionManager.SelectAll));
+        }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(helpManager.Help));
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(helpManager.About));
         }
     }
 }

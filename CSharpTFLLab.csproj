@@ -48,7 +48,14 @@
   <ItemGroup>
     <Compile Include="Classes\SimpleCorrectionManager.cs" />
     <Compile Include="Classes\SimpleFileManager.cs" />
+    <Compile Include="Classes\SimpleHelpManager.cs" />
     <Compile Include="Classes\SimpleShell.cs" />
+    <Compile Include="Forms\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +68,9 @@
     <Compile Include="Interfaces\IShell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

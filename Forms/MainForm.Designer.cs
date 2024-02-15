@@ -166,42 +166,49 @@
             this.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem";
             this.UndoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.UndoToolStripMenuItem.Text = "Отменить";
+            this.UndoToolStripMenuItem.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // RedoToolStripMenuItem
             // 
             this.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem";
             this.RedoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RedoToolStripMenuItem.Text = "Повторить";
+            this.RedoToolStripMenuItem.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // CutToolStripMenuItem
             // 
             this.CutToolStripMenuItem.Name = "CutToolStripMenuItem";
             this.CutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CutToolStripMenuItem.Text = "Вырезать";
+            this.CutToolStripMenuItem.Click += new System.EventHandler(this.CutButton_Click);
             // 
             // CopyToolStripMenuItem
             // 
             this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
             this.CopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CopyToolStripMenuItem.Text = "Копировать";
+            this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyButton_Click);
             // 
             // InsertToolStripMenuItem
             // 
             this.InsertToolStripMenuItem.Name = "InsertToolStripMenuItem";
             this.InsertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.InsertToolStripMenuItem.Text = "Вставать";
+            this.InsertToolStripMenuItem.Text = "Вставить";
+            this.InsertToolStripMenuItem.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // SelectAllToolStripMenuItem
             // 
             this.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem";
             this.SelectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SelectAllToolStripMenuItem.Text = "Выделить все";
+            this.SelectAllToolStripMenuItem.Click += new System.EventHandler(this.SelectAllToolStripMenuItem_Click);
             // 
             // текстToolStripMenuItem
             // 
@@ -286,12 +293,14 @@
             this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
             this.HelpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.HelpToolStripMenuItem.Text = "Вызов справки";
+            this.HelpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AboutToolStripMenuItem.Text = "О программе";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // IOTextSplitContainer
             // 
@@ -323,7 +332,6 @@
             this.InputTextBox.Size = new System.Drawing.Size(460, 182);
             this.InputTextBox.TabIndex = 0;
             this.InputTextBox.Text = "";
-            this.InputTextBox.TextChanged += new System.EventHandler(this.InputTextBox_TextChanged);
             // 
             // OuputTabControl
             // 
@@ -443,6 +451,7 @@
             this.InsertButton.Size = new System.Drawing.Size(46, 46);
             this.InsertButton.TabIndex = 8;
             this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // CutButton
             // 
@@ -453,6 +462,7 @@
             this.CutButton.Size = new System.Drawing.Size(46, 46);
             this.CutButton.TabIndex = 7;
             this.CutButton.UseVisualStyleBackColor = true;
+            this.CutButton.Click += new System.EventHandler(this.CutButton_Click);
             // 
             // CopyButton
             // 
@@ -463,6 +473,7 @@
             this.CopyButton.Size = new System.Drawing.Size(46, 46);
             this.CopyButton.TabIndex = 6;
             this.CopyButton.UseVisualStyleBackColor = true;
+            this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
             // NextButton
             // 
@@ -473,6 +484,7 @@
             this.NextButton.Size = new System.Drawing.Size(46, 46);
             this.NextButton.TabIndex = 5;
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // BackButton
             // 
@@ -483,6 +495,7 @@
             this.BackButton.Size = new System.Drawing.Size(46, 46);
             this.BackButton.TabIndex = 4;
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // SaveFileButton
             // 
