@@ -117,22 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="IndexColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FilePathColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RowColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MessageColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="HelpTextBox.Text" xml:space="preserve">
+    <value>Программа может работать с текстовыми файлами типа С.
+Для этого у пользователя есть функции для работы с файлами:
+Создать новый файл;
+Открыть существующий файл;
+Сохранить файл;
+Сохранить как новый файл;
+Выход - завершает программу.
+
+Для работы с текстом для пользователя реализованы слудующие функции:
+Отменить предыдущее изменение;
+Повторить изменение;
+Вырезать выделенный текст в буфер обмена;
+Копировать выделенный текст в буфер обмена;
+Вставить текст из буфера обмена;
+Удалить выделенный текст;
+Выделить весь текст из области редактирования файла.
+
+Функции для отладки и запуска исполняемого кода - находятся ещё в разработке.
+
+Обращайтесь к справке для проверки актуальной версии и пояснении в программе.
+</value>
+  </data>
 </root>

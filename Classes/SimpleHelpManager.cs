@@ -18,7 +18,8 @@ namespace CSharpTFLLab.Classes
 
         public void Help()
         {
-            throw new NotImplementedException();
+            FormHelp form = new FormHelp();
+            form.ShowDialog();
         }
     }
 }

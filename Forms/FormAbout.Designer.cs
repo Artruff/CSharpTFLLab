@@ -38,9 +38,9 @@
             this.NameLabel.AutoSize = true;
             this.NameLabel.Location = new System.Drawing.Point(13, 13);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(143, 13);
+            this.NameLabel.Size = new System.Drawing.Size(177, 13);
             this.NameLabel.TabIndex = 0;
-            this.NameLabel.Text = "Программа: компилятор С";
+            this.NameLabel.Text = "Программа: Супер С Компилятор";
             // 
             // VersionLabel
             // 

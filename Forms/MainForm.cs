@@ -25,7 +25,6 @@ namespace CSharpTFLLab
 
         ICorrectionManager correctionManager_;
         internal ICorrectionManager correctionManager { get => correctionManager_; }
-
         public MainForm()
         {
             InitializeComponent();
@@ -103,6 +102,13 @@ namespace CSharpTFLLab
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             shell.Execute(new Action(helpManager.About));
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+                e.Cancel = true;
+            shell.Execute(new Action(fileManager.Exit));
         }
     }
 }
