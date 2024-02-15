@@ -70,7 +70,7 @@
             this.OpenFileButton = new System.Windows.Forms.Button();
             this.NewFileButton = new System.Windows.Forms.Button();
             this.OutputTextBox = new System.Windows.Forms.RichTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LogDataGrid = new System.Windows.Forms.DataGridView();
             this.IndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePathColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,7 +84,7 @@
             this.OuputTabControl.SuspendLayout();
             this.OutputTabPage.SuspendLayout();
             this.LogTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuStrip
@@ -346,7 +346,7 @@
             // 
             // LogTabPage
             // 
-            this.LogTabPage.Controls.Add(this.dataGridView1);
+            this.LogTabPage.Controls.Add(this.LogDataGrid);
             this.LogTabPage.Location = new System.Drawing.Point(4, 22);
             this.LogTabPage.Name = "LogTabPage";
             this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -446,24 +446,24 @@
             this.OutputTextBox.TabIndex = 0;
             this.OutputTextBox.Text = "";
             // 
-            // dataGridView1
+            // LogDataGrid
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LogDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LogDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LogDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LogDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IndexColumn,
             this.FilePathColumn,
             this.RowColumn,
             this.ColumnColumn,
             this.MessageColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(435, 122);
-            this.dataGridView1.TabIndex = 0;
+            this.LogDataGrid.Location = new System.Drawing.Point(7, 7);
+            this.LogDataGrid.Name = "LogDataGrid";
+            this.LogDataGrid.ReadOnly = true;
+            this.LogDataGrid.Size = new System.Drawing.Size(435, 122);
+            this.LogDataGrid.TabIndex = 0;
             // 
             // IndexColumn
             // 
@@ -536,7 +536,7 @@
             this.OuputTabControl.ResumeLayout(false);
             this.OutputTabPage.ResumeLayout(false);
             this.LogTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -586,7 +586,7 @@
         private System.Windows.Forms.TabPage OutputTabPage;
         private System.Windows.Forms.TabPage LogTabPage;
         private System.Windows.Forms.RichTextBox OutputTextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView LogDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn IndexColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePathColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowColumn;
