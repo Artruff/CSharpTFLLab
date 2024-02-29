@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,7 +50,10 @@
     <Compile Include="Classes\SimpleCorrectionManager.cs" />
     <Compile Include="Classes\SimpleFileManager.cs" />
     <Compile Include="Classes\SimpleHelpManager.cs" />
+    <Compile Include="Classes\SimpleScaner.cs" />
     <Compile Include="Classes\SimpleShell.cs" />
+    <Compile Include="Enums\StructStepEnum.cs" />
+    <Compile Include="Enums\StructScanEnum.cs" />
     <Compile Include="Forms\FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +75,7 @@
     <Compile Include="Interfaces\IHelpManager.cs" />
     <Compile Include="Interfaces\ICorrectionManager.cs" />
     <Compile Include="Interfaces\IFileManager.cs" />
+    <Compile Include="Interfaces\IScaner.cs" />
     <Compile Include="Interfaces\IShell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +115,7 @@
     <None Include="Resources\NewFile.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Рефакторинг.png" />
     <None Include="Resources\Copy.png" />
     <None Include="Resources\Insert.png" />
     <None Include="Resources\Cut.png" />

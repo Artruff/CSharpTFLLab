@@ -12,16 +12,17 @@ namespace CSharpTFLLab.Classes
     internal class SimpleFileManager : IFileManager
     {
         MainForm form;
-        string curFile;
+        string curFile_;
+        public string curFile { set=> curFile_ = value; get => curFile_; }
         bool fileChanged;
         public SimpleFileManager(MainForm form)
         {
             this.form = form;
-            curFile = "";
+            curFile_ = "";
             fileChanged = false;
             this.form.InputTextBox.TextChanged += new EventHandler((sender, earg) => { fileChanged = true; });
         }
-        internal bool CheckClose()
+        public bool CheckClose()
         {
             if (fileChanged)
             {
@@ -53,7 +54,7 @@ namespace CSharpTFLLab.Classes
                 {
                     StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                     sw.Close();
-                    curFile = saveFileDialog.FileName;
+                    curFile_ = saveFileDialog.FileName;
                 }
                 fileChanged = false;
             }
@@ -82,7 +83,7 @@ namespace CSharpTFLLab.Classes
                     {
                         form.InputTextBox.Text = sr.ReadToEnd();
                     }
-                    curFile = filePath;
+                    curFile_ = filePath;
                 }
                 fileChanged = false;
             }
@@ -90,7 +91,7 @@ namespace CSharpTFLLab.Classes
 
         public void SaveFile()
         {
-            using (StreamWriter sw = new StreamWriter(curFile))
+            using (StreamWriter sw = new StreamWriter(curFile_))
             {
                 sw.Write(form.InputTextBox.Text);
             }
@@ -102,7 +103,7 @@ namespace CSharpTFLLab.Classes
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "C Files (*.c)|*.c";
             saveFileDialog.Title = "Сохранить файл как";
-            saveFileDialog.FileName = curFile.Split('\\').Last();
+            saveFileDialog.FileName = curFile_.Split('\\').Last();
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -111,7 +112,7 @@ namespace CSharpTFLLab.Classes
                 {
                     sw.Write(form.InputTextBox.Text);
                 }
-                curFile = filePath;
+                curFile_ = filePath;
                 fileChanged = false;
             }
         }

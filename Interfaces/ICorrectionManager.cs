@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CSharpTFLLab.Interfaces
 {
@@ -15,5 +16,7 @@ namespace CSharpTFLLab.Interfaces
         void Paste();
         void Delete();
         void SelectAll();
+        void IncreaseFontIOText();
+        void DecreaseFontIOText();
     }
 }

@@ -13,5 +13,7 @@ namespace CSharpTFLLab.Interfaces
         void SaveFile();
         void SaveFileAs();
         void Exit();
+        bool CheckClose();
+        string curFile { set; get; }
     }
 }

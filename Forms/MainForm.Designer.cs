@@ -68,6 +68,9 @@
             this.RowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MessageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DecreaseFontButton = new System.Windows.Forms.Button();
+            this.IncreaseFontButton = new System.Windows.Forms.Button();
+            this.RefactoringButton = new System.Windows.Forms.Button();
             this.InsertButton = new System.Windows.Forms.Button();
             this.CutButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
@@ -89,6 +92,7 @@
             // 
             // MenuStrip
             // 
+            this.MenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.правкаToolStripMenuItem,
@@ -97,7 +101,8 @@
             this.справкаToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(489, 24);
+            this.MenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.MenuStrip.Size = new System.Drawing.Size(558, 24);
             this.MenuStrip.TabIndex = 0;
             this.MenuStrip.Text = "MenuStrip";
             // 
@@ -304,6 +309,7 @@
             // 
             // IOTextSplitContainer
             // 
+            this.IOTextSplitContainer.AllowDrop = true;
             this.IOTextSplitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -318,20 +324,24 @@
             // IOTextSplitContainer.Panel2
             // 
             this.IOTextSplitContainer.Panel2.Controls.Add(this.OuputTabControl);
-            this.IOTextSplitContainer.Size = new System.Drawing.Size(467, 360);
-            this.IOTextSplitContainer.SplitterDistance = 189;
+            this.IOTextSplitContainer.Size = new System.Drawing.Size(536, 360);
+            this.IOTextSplitContainer.SplitterDistance = 153;
             this.IOTextSplitContainer.TabIndex = 10;
+            this.IOTextSplitContainer.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.IOTextSplitContainer.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // InputTextBox
             // 
             this.InputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.InputTextBox.EnableAutoDragDrop = true;
             this.InputTextBox.Location = new System.Drawing.Point(4, 4);
             this.InputTextBox.Name = "InputTextBox";
-            this.InputTextBox.Size = new System.Drawing.Size(460, 182);
+            this.InputTextBox.Size = new System.Drawing.Size(529, 145);
             this.InputTextBox.TabIndex = 0;
             this.InputTextBox.Text = "";
+            this.InputTextBox.TextChanged += new System.EventHandler(this.InputTextBox_TextChanged);
             // 
             // OuputTabControl
             // 
@@ -343,7 +353,7 @@
             this.OuputTabControl.Location = new System.Drawing.Point(8, 3);
             this.OuputTabControl.Name = "OuputTabControl";
             this.OuputTabControl.SelectedIndex = 0;
-            this.OuputTabControl.Size = new System.Drawing.Size(456, 161);
+            this.OuputTabControl.Size = new System.Drawing.Size(525, 196);
             this.OuputTabControl.TabIndex = 0;
             // 
             // OutputTabPage
@@ -351,8 +361,8 @@
             this.OutputTabPage.Controls.Add(this.OutputTextBox);
             this.OutputTabPage.Location = new System.Drawing.Point(4, 22);
             this.OutputTabPage.Name = "OutputTabPage";
-            this.OutputTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.OutputTabPage.Size = new System.Drawing.Size(448, 135);
+            this.OutputTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.OutputTabPage.Size = new System.Drawing.Size(517, 170);
             this.OutputTabPage.TabIndex = 0;
             this.OutputTabPage.Text = "Вывод";
             this.OutputTabPage.UseVisualStyleBackColor = true;
@@ -365,7 +375,7 @@
             this.OutputTextBox.Location = new System.Drawing.Point(7, 7);
             this.OutputTextBox.Name = "OutputTextBox";
             this.OutputTextBox.ReadOnly = true;
-            this.OutputTextBox.Size = new System.Drawing.Size(435, 122);
+            this.OutputTextBox.Size = new System.Drawing.Size(504, 158);
             this.OutputTextBox.TabIndex = 0;
             this.OutputTextBox.Text = "";
             // 
@@ -374,8 +384,8 @@
             this.LogTabPage.Controls.Add(this.LogDataGrid);
             this.LogTabPage.Location = new System.Drawing.Point(4, 22);
             this.LogTabPage.Name = "LogTabPage";
-            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LogTabPage.Size = new System.Drawing.Size(448, 135);
+            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LogTabPage.Size = new System.Drawing.Size(517, 170);
             this.LogTabPage.TabIndex = 1;
             this.LogTabPage.Text = "Логи";
             this.LogTabPage.UseVisualStyleBackColor = true;
@@ -396,7 +406,8 @@
             this.LogDataGrid.Location = new System.Drawing.Point(7, 7);
             this.LogDataGrid.Name = "LogDataGrid";
             this.LogDataGrid.ReadOnly = true;
-            this.LogDataGrid.Size = new System.Drawing.Size(435, 122);
+            this.LogDataGrid.RowHeadersWidth = 51;
+            this.LogDataGrid.Size = new System.Drawing.Size(504, 158);
             this.LogDataGrid.TabIndex = 0;
             // 
             // IndexColumn
@@ -404,6 +415,7 @@
             this.IndexColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.IndexColumn.FillWeight = 40F;
             this.IndexColumn.HeaderText = "";
+            this.IndexColumn.MinimumWidth = 6;
             this.IndexColumn.Name = "IndexColumn";
             this.IndexColumn.ReadOnly = true;
             this.IndexColumn.Width = 40;
@@ -413,6 +425,7 @@
             this.FilePathColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.FilePathColumn.FillWeight = 112.3096F;
             this.FilePathColumn.HeaderText = "Путь к файлу";
+            this.FilePathColumn.MinimumWidth = 6;
             this.FilePathColumn.Name = "FilePathColumn";
             this.FilePathColumn.ReadOnly = true;
             // 
@@ -421,6 +434,7 @@
             this.RowColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.RowColumn.FillWeight = 40F;
             this.RowColumn.HeaderText = "Строка";
+            this.RowColumn.MinimumWidth = 6;
             this.RowColumn.Name = "RowColumn";
             this.RowColumn.ReadOnly = true;
             this.RowColumn.Width = 68;
@@ -430,6 +444,7 @@
             this.ColumnColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ColumnColumn.FillWeight = 40F;
             this.ColumnColumn.HeaderText = "Колонка";
+            this.ColumnColumn.MinimumWidth = 6;
             this.ColumnColumn.Name = "ColumnColumn";
             this.ColumnColumn.ReadOnly = true;
             this.ColumnColumn.Width = 75;
@@ -439,11 +454,51 @@
             this.MessageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.MessageColumn.FillWeight = 112.3096F;
             this.MessageColumn.HeaderText = "Сообщение";
+            this.MessageColumn.MinimumWidth = 6;
             this.MessageColumn.Name = "MessageColumn";
             this.MessageColumn.ReadOnly = true;
             // 
+            // DecreaseFontButton
+            // 
+            this.DecreaseFontButton.AllowDrop = true;
+            this.DecreaseFontButton.Location = new System.Drawing.Point(168, 50);
+            this.DecreaseFontButton.Name = "DecreaseFontButton";
+            this.DecreaseFontButton.Size = new System.Drawing.Size(51, 23);
+            this.DecreaseFontButton.TabIndex = 11;
+            this.DecreaseFontButton.Text = "\\/";
+            this.DecreaseFontButton.UseVisualStyleBackColor = true;
+            this.DecreaseFontButton.Click += new System.EventHandler(this.DecreaseFontButton_Click);
+            this.DecreaseFontButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.DecreaseFontButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
+            // 
+            // IncreaseFontButton
+            // 
+            this.IncreaseFontButton.AllowDrop = true;
+            this.IncreaseFontButton.Location = new System.Drawing.Point(168, 27);
+            this.IncreaseFontButton.Name = "IncreaseFontButton";
+            this.IncreaseFontButton.Size = new System.Drawing.Size(51, 23);
+            this.IncreaseFontButton.TabIndex = 12;
+            this.IncreaseFontButton.Text = "/\\";
+            this.IncreaseFontButton.UseVisualStyleBackColor = true;
+            this.IncreaseFontButton.Click += new System.EventHandler(this.IncreaseFontButton_Click);
+            this.IncreaseFontButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.IncreaseFontButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
+            // 
+            // RefactoringButton
+            // 
+            this.RefactoringButton.AllowDrop = true;
+            this.RefactoringButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Рефакторинг;
+            this.RefactoringButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RefactoringButton.Location = new System.Drawing.Point(485, 27);
+            this.RefactoringButton.Name = "RefactoringButton";
+            this.RefactoringButton.Size = new System.Drawing.Size(46, 46);
+            this.RefactoringButton.TabIndex = 13;
+            this.RefactoringButton.UseVisualStyleBackColor = true;
+            this.RefactoringButton.Click += new System.EventHandler(this.RefactoringButton_Click);
+            // 
             // InsertButton
             // 
+            this.InsertButton.AllowDrop = true;
             this.InsertButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Insert;
             this.InsertButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.InsertButton.Location = new System.Drawing.Point(433, 27);
@@ -452,9 +507,12 @@
             this.InsertButton.TabIndex = 8;
             this.InsertButton.UseVisualStyleBackColor = true;
             this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
+            this.InsertButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.InsertButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // CutButton
             // 
+            this.CutButton.AllowDrop = true;
             this.CutButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Cut;
             this.CutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CutButton.Location = new System.Drawing.Point(381, 27);
@@ -463,9 +521,12 @@
             this.CutButton.TabIndex = 7;
             this.CutButton.UseVisualStyleBackColor = true;
             this.CutButton.Click += new System.EventHandler(this.CutButton_Click);
+            this.CutButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.CutButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // CopyButton
             // 
+            this.CopyButton.AllowDrop = true;
             this.CopyButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Copy;
             this.CopyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CopyButton.Location = new System.Drawing.Point(329, 27);
@@ -474,9 +535,12 @@
             this.CopyButton.TabIndex = 6;
             this.CopyButton.UseVisualStyleBackColor = true;
             this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
+            this.CopyButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.CopyButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // NextButton
             // 
+            this.NextButton.AllowDrop = true;
             this.NextButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Next;
             this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NextButton.Location = new System.Drawing.Point(277, 27);
@@ -485,9 +549,12 @@
             this.NextButton.TabIndex = 5;
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            this.NextButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.NextButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // BackButton
             // 
+            this.BackButton.AllowDrop = true;
             this.BackButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.Back;
             this.BackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BackButton.Location = new System.Drawing.Point(225, 27);
@@ -496,9 +563,12 @@
             this.BackButton.TabIndex = 4;
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.BackButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // SaveFileButton
             // 
+            this.SaveFileButton.AllowDrop = true;
             this.SaveFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.SaveFile;
             this.SaveFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SaveFileButton.Location = new System.Drawing.Point(116, 27);
@@ -507,9 +577,12 @@
             this.SaveFileButton.TabIndex = 3;
             this.SaveFileButton.UseVisualStyleBackColor = true;
             this.SaveFileButton.Click += new System.EventHandler(this.SaveFileButton_Click);
+            this.SaveFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.SaveFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // OpenFileButton
             // 
+            this.OpenFileButton.AllowDrop = true;
             this.OpenFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.OpenFile;
             this.OpenFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OpenFileButton.Location = new System.Drawing.Point(64, 27);
@@ -518,9 +591,12 @@
             this.OpenFileButton.TabIndex = 2;
             this.OpenFileButton.UseVisualStyleBackColor = true;
             this.OpenFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
+            this.OpenFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.OpenFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // NewFileButton
             // 
+            this.NewFileButton.AllowDrop = true;
             this.NewFileButton.BackgroundImage = global::CSharpTFLLab.Properties.Resources.NewFile;
             this.NewFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NewFileButton.Location = new System.Drawing.Point(12, 27);
@@ -529,12 +605,18 @@
             this.NewFileButton.TabIndex = 1;
             this.NewFileButton.UseVisualStyleBackColor = true;
             this.NewFileButton.Click += new System.EventHandler(this.NewFileButton_Click);
+            this.NewFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.NewFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             // 
             // MainForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 451);
+            this.ClientSize = new System.Drawing.Size(558, 451);
+            this.Controls.Add(this.RefactoringButton);
+            this.Controls.Add(this.IncreaseFontButton);
+            this.Controls.Add(this.DecreaseFontButton);
             this.Controls.Add(this.IOTextSplitContainer);
             this.Controls.Add(this.InsertButton);
             this.Controls.Add(this.CutButton);
@@ -546,10 +628,12 @@
             this.Controls.Add(this.NewFileButton);
             this.Controls.Add(this.MenuStrip);
             this.MainMenuStrip = this.MenuStrip;
-            this.MinimumSize = new System.Drawing.Size(505, 490);
+            this.MinimumSize = new System.Drawing.Size(506, 488);
             this.Name = "MainForm";
             this.Text = "Компилятор";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.InsertButton_DragEnter);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.IOTextSplitContainer.Panel1.ResumeLayout(false);
@@ -615,6 +699,9 @@
         internal System.Windows.Forms.DataGridViewTextBoxColumn RowColumn;
         internal System.Windows.Forms.DataGridViewTextBoxColumn ColumnColumn;
         internal System.Windows.Forms.DataGridViewTextBoxColumn MessageColumn;
+        private System.Windows.Forms.Button DecreaseFontButton;
+        private System.Windows.Forms.Button IncreaseFontButton;
+        internal System.Windows.Forms.Button RefactoringButton;
     }
 }
 
