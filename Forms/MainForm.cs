@@ -35,7 +35,7 @@ namespace CSharpTFLLab
             _fileManager = new SimpleFileManager(this);
             _helpManager = new SimpleHelpManager();
             _correctionManager = new SimpleCorrectionManager(this);
-
+            _scaner = new SimpleScaner(this);
         }
 
         private void NewFileButton_Click(object sender, EventArgs e)
