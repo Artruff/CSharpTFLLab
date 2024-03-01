@@ -123,6 +123,7 @@
     <None Include="Resources\CopyText.gif" />
     <None Include="Resources\Next.png" />
     <None Include="Resources\Back.png" />
+    <Content Include="Resources\leksem.png" />
     <Content Include="Resources\OpenFile.png" />
     <None Include="Resources\SaveFile.png" />
   </ItemGroup>
