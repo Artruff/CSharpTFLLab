@@ -49,7 +49,7 @@
             this.VersionLabel.Name = "VersionLabel";
             this.VersionLabel.Size = new System.Drawing.Size(65, 13);
             this.VersionLabel.TabIndex = 1;
-            this.VersionLabel.Text = "Версия: 0.1";
+            this.VersionLabel.Text = "Версия: 0.2";
             // 
             // label1
             // 
