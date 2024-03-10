@@ -283,6 +283,7 @@
             this.пускToolStripMenuItem.Name = "пускToolStripMenuItem";
             this.пускToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.пускToolStripMenuItem.Text = "Пуск";
+            this.пускToolStripMenuItem.Click += new System.EventHandler(this.пускToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -361,7 +362,7 @@
             this.OutputTabPage.Controls.Add(this.OutputTextBox);
             this.OutputTabPage.Location = new System.Drawing.Point(4, 22);
             this.OutputTabPage.Name = "OutputTabPage";
-            this.OutputTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.OutputTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.OutputTabPage.Size = new System.Drawing.Size(517, 170);
             this.OutputTabPage.TabIndex = 0;
             this.OutputTabPage.Text = "Вывод";
@@ -384,7 +385,7 @@
             this.LogTabPage.Controls.Add(this.LogDataGrid);
             this.LogTabPage.Location = new System.Drawing.Point(4, 22);
             this.LogTabPage.Name = "LogTabPage";
-            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.LogTabPage.Size = new System.Drawing.Size(517, 170);
             this.LogTabPage.TabIndex = 1;
             this.LogTabPage.Text = "Логи";

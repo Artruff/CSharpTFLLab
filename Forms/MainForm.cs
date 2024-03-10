@@ -28,6 +28,8 @@ namespace CSharpTFLLab
 
         ICorrectionManager _correctionManager;
         internal ICorrectionManager correctionManager { get => _correctionManager; }
+        IParser _parser;
+        internal IParser parser { get => _parser; }
         public MainForm()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace CSharpTFLLab
             _helpManager = new SimpleHelpManager();
             _correctionManager = new SimpleCorrectionManager(this);
             _scaner = new SimpleScaner(this);
+            _parser = new SimpleParser(_scaner, OutputTextBox, LogDataGrid);
         }
 
         private void NewFileButton_Click(object sender, EventArgs e)
@@ -212,6 +215,11 @@ namespace CSharpTFLLab
         private void RefactoringButton_Click(object sender, EventArgs e)
         {
             shell.Execute(new Action(_scaner.Check));
+        }
+
+        private void пускToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shell.Execute(new Action(_parser.Parse));
         }
     }
 }

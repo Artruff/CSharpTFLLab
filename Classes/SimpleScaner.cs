@@ -10,22 +10,11 @@ using System.Runtime.Serialization.Formatters;
 
 namespace CSharpTFLLab.Classes
 {
-    internal struct Word
-    {
-        internal Word(StructScanEnum StructScanEnum, string str, int start, int end)
-        {
-            this.StructScanEnum = StructScanEnum;
-            this.str = str;
-            this.start = start;
-            this.end = end;
-        }
-        internal StructScanEnum StructScanEnum;
-        internal string str;
-        internal int start;
-        internal int end;
-    }
+    
     internal class SimpleScaner : IScaner
     {
+        internal Word _curWord;
+        public Word curWord { get => _curWord; }
         private string[,] _structScanDescription = {{ "", ""},
                                                     { "ключевое слово", "struct" },
                                                     { "ключевое слово", "int" },
@@ -55,10 +44,9 @@ namespace CSharpTFLLab.Classes
         {
             Clear();
             Scan();
-            //Filter();
-            CheckProcess();
+            Checking();
         }
-        private Word GetNextWord()
+        public bool GetNextWord()
         {
             int start = _curChr;
             while (_curChr < _buffer.Length && Char.IsLetterOrDigit(_buffer[_curChr]))
@@ -66,7 +54,10 @@ namespace CSharpTFLLab.Classes
             if(start == _curChr)
             {
                 if (_curChr == _buffer.Length)
-                    return new Word(StructScanEnum.NONE, "", start, _curChr);
+                {
+                    _curWord = new Word(StructScanEnum.NONE, "", start, _curChr);
+                    return false;
+                }
                 else
                     _curChr += 1;
             }
@@ -84,57 +75,70 @@ namespace CSharpTFLLab.Classes
                     }
                     else
                         _curColumn++;
-                    return new Word(StructScanEnum.Space, subString, start, end);
+                    _curWord = new Word(StructScanEnum.Space, subString, start, end);
+                    return true;
                 }
                 else
-                    return new Word(StructScanEnum.ERROR, subString, start, end);
+                {
+                    _curWord = new Word(StructScanEnum.ERROR, subString, start, end);
+                    return false;
+                }
             }
             for (int i = 1; i < _structScanDescription.GetLength(0); i++)
             {
                 if (i == 6) i++;
                 if (subString == _structScanDescription[i, 1])
-                    return new Word((StructScanEnum)i, subString, start, end);
+                {
+                    _curWord = new Word((StructScanEnum)i, subString, start, end);
+                    return true;
+                }
             }
-            return new Word(StructScanEnum.Identificatory, subString, start, end);
+            _curWord = new Word(StructScanEnum.Identificatory, subString, start, end);
+            return true;
         }
-        private void NextWordAndSkipSpace(ref Word word)
+        public bool NextWordAndSkipSpace()
         {
             do
             {
-                word = GetNextWord();
-                OutputResult(word);
-            } while (word.StructScanEnum == StructScanEnum.Space && (word.StructScanEnum != StructScanEnum.NONE || word.StructScanEnum == StructScanEnum.ERROR));
+                GetNextWord();
+                if (_curWord.StructScanEnum == StructScanEnum.NONE || _curWord.StructScanEnum == StructScanEnum.ERROR)
+                    return false;
+                else if(_curWord.StructScanEnum != StructScanEnum.Space)
+                    return true;
+            } while (true);
         }
-        private void CheckProcess()
+        public bool Checking()
         {
             _step = StructStepEnum.Search;
-            int levelDeep = 0;
-            Word word;
             do
             {
-                word = GetNextWord();   
-                OutputResult(word);
-            }while(word.StructScanEnum != StructScanEnum.NONE && word.StructScanEnum != StructScanEnum.ERROR);
-            if (word.StructScanEnum == StructScanEnum.ERROR)
-                OutputError("Ошибка ликсемы - " + word.str);
+                GetNextWord();   
+                OutputCurWord();
+            }while(_curWord.StructScanEnum != StructScanEnum.NONE && _curWord.StructScanEnum != StructScanEnum.ERROR);
+            if (_curWord.StructScanEnum == StructScanEnum.ERROR)
+            {
+                OutputError("Ошибка ликсемы - " + _curWord.str);
+                return false;
+            }
+            return true;
         }
 
-        private void OutputResult(Word word)
+        public void OutputCurWord()
         {
-            if (word.StructScanEnum == StructScanEnum.ERROR || word.StructScanEnum == StructScanEnum.NONE)
+            if (_curWord.StructScanEnum == StructScanEnum.ERROR || _curWord.StructScanEnum == StructScanEnum.NONE)
                 return;
             if (_form.OutputTextBox.Text.Length > 0)
                 _form.OutputTextBox.AppendText("\n");
-            if (word.str == " ")
-                word.str = "(пробел)";
-            else if (word.str == "\n")
-                word.str = "(конец строки)";
-            else if (word.str == "\t")
-                word.str = "(табуляция)";
-            _form.OutputTextBox.AppendText($"{(int)word.StructScanEnum} - { _structScanDescription[(int)word.StructScanEnum, 0]} - {word.str} - c {word.start} по {word.end} символ");
+            if (_curWord.str == " ")
+                _curWord.str = "(пробел)";
+            else if (_curWord.str == "\n")
+                _curWord.str = "(конец строки)";
+            else if (_curWord.str == "\t")
+                _curWord.str = "(табуляция)";
+            _form.OutputTextBox.AppendText($"{(int)_curWord.StructScanEnum} - { _structScanDescription[(int)_curWord.StructScanEnum, 0]} - {_curWord.str} - c {_curWord.start} по {_curWord.end} символ");
         }
 
-        private void OutputError(string massage)
+        public void OutputError(string massage)
         {
             _form.LogDataGrid.Rows.Add();
             var row = _form.LogDataGrid.Rows[_form.LogDataGrid.Rows.Count - 1];
@@ -143,7 +147,6 @@ namespace CSharpTFLLab.Classes
             row.Cells[2].Value = _curLine;
             row.Cells[3].Value = _curColumn;
             row.Cells[4].Value = massage;
-            throw new Exception("Ошибка проверки синтаксиса");
         }
 
         public void Clear()

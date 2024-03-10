@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CStruct.cs" />
     <Compile Include="Classes\SimpleCorrectionManager.cs" />
     <Compile Include="Classes\SimpleFileManager.cs" />
     <Compile Include="Classes\SimpleHelpManager.cs" />
+    <Compile Include="Classes\SimpleParser.cs" />
     <Compile Include="Classes\SimpleScaner.cs" />
     <Compile Include="Classes\SimpleShell.cs" />
     <Compile Include="Enums\StructStepEnum.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Interfaces\IHelpManager.cs" />
     <Compile Include="Interfaces\ICorrectionManager.cs" />
     <Compile Include="Interfaces\IFileManager.cs" />
+    <Compile Include="Interfaces\IParser.cs" />
     <Compile Include="Interfaces\IScaner.cs" />
     <Compile Include="Interfaces\IShell.cs" />
     <Compile Include="Program.cs" />
@@ -98,6 +101,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
