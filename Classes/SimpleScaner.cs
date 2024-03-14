@@ -140,8 +140,7 @@ namespace CSharpTFLLab.Classes
 
         public void OutputError(string massage)
         {
-            _form.LogDataGrid.Rows.Add();
-            var row = _form.LogDataGrid.Rows[_form.LogDataGrid.Rows.Count - 1];
+            var row = _form.LogDataGrid.Rows[_form.LogDataGrid.Rows.Add()];
             row.Cells[0].Value = _form.LogDataGrid.Rows.Count - 1;
             row.Cells[1].Value = _form.fileManager.curFile;
             row.Cells[2].Value = _curLine;

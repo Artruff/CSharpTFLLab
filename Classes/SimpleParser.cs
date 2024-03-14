@@ -40,7 +40,7 @@ namespace CSharpTFLLab.Classes
                     var enumerator = structs[i].GetEnumerator();
                     while (enumerator.MoveNext())
                     {
-                        output("\t"+enumerator.Current.Key + " - " + enumerator.Current.Value + "\n");
+                        output("\t"+enumerator.Current.Key + " - " + enumerator.Current.Value.Name + "\n");
                     }
                 }
         }
@@ -57,6 +57,7 @@ namespace CSharpTFLLab.Classes
             _scaner.Clear();
             _scaner.Scan();
             bool result = true;
+            int errCount = 0;
             if (_scaner.Checking())
             {
                 _scaner.Clear();
@@ -70,14 +71,16 @@ namespace CSharpTFLLab.Classes
                         string name = null;
                         result = NewCStruct(ref name);
                         if (!result)
-                            break;
+                            errCount++;
                     }
                     else
                     {
                         error("ожидается ключевое слово struct");
-                        break;
+                        errCount++;
                     }
                 }
+                if(errCount!=0)
+                    output($"Всего ошибок: {errCount}");
             }
             if(result)
                 Output();
@@ -139,6 +142,7 @@ namespace CSharpTFLLab.Classes
                                 else
                                 {
                                     error("Ожидается завершающая точка с запятой");
+                                    return false;
                                 }
                             }
                             else

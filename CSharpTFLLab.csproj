@@ -120,6 +120,9 @@
     <None Include="Resources\NewFile.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\StateMachine.png" />
+    <Content Include="Resources\Error.png" />
+    <Content Include="Resources\Work.png" />
     <None Include="Resources\Рефакторинг.png" />
     <None Include="Resources\Copy.png" />
     <None Include="Resources\Insert.png" />

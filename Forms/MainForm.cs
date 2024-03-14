@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace CSharpTFLLab
 {
@@ -156,9 +157,12 @@ namespace CSharpTFLLab
         public bool changeLocker = false;
         private void InputTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            InputTextBox.SuspendLayout();
             string[] keywords = { "struct", "int", "bool", "float", "char" };
             int start = InputTextBox.SelectionStart;
+            InputTextBox.Select(start-8 < 0 ? 0 : start - 8 , 16);
+            InputTextBox.SelectionColor = Color.Black;
+            InputTextBox.SelectionFont = new Font(InputTextBox.Font, FontStyle.Regular);
             foreach (string keyword in keywords)
             {
                 int index = 0;
@@ -176,40 +180,8 @@ namespace CSharpTFLLab
                     index = startIndex + keyword.Length;
                 }
             }
-            InputTextBox.SelectionStart = start;
-            //if (!changeLocker)
-            //{
-            //    changeLocker = true;
-            //    string[] array = new string[InputTextBox.Lines.Length];
-            //    InputTextBox.Lines.CopyTo(array, 0);
-            //    int startSelect = InputTextBox.SelectionStart;
-            //    InputTextBox.Clear();
-            //    for (int i = 0; i < array.Length; i++)
-            //    {
-            //        string[] txtNum = array[i].Split(':');
-            //        string line = "";
-            //        if (txtNum.Length > 1)
-            //        {
-            //            line = txtNum[1];
-            //            startSelect -= txtNum[0].Length;
-            //        }
-            //        else
-            //        {
-            //            line = txtNum[0];
-            //        }
-
-            //        string num = "";
-            //        if (i == 0)
-            //            num = (i + 1).ToString() + ":";
-            //        else
-            //            num = "\n" + (i + 1).ToString() + ":";
-            //        startSelect += num.Length;
-            //        line = num + line;
-            //        InputTextBox.AppendText(line);
-            //    }
-            //    InputTextBox.SelectionStart = startSelect;
-            //    changeLocker = false;
-            //}
+            InputTextBox.Select(start, 0);
+            InputTextBox.ResumeLayout();
         }
 
         private void RefactoringButton_Click(object sender, EventArgs e)
