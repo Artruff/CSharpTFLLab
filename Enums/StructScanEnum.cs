@@ -3,7 +3,8 @@ namespace CSharpTFLLab.Enums
 {
     internal enum StructScanEnum
     {
-        ERROR = 0,
+        ERROR = -1,
+        NONE = 0,
         Struct = 1,
         Int = 2,
         Bool = 3,
