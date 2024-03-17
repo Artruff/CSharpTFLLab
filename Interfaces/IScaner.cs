@@ -21,11 +21,14 @@ namespace CSharpTFLLab.Interfaces
         internal int start;
         internal int end;
     }
-    internal interface IScaner
+    internal interface IScaner : IList<Word>
     {
+        int iCurWord { get; }
         string buffer { get; }
         Word curWord { get; }
-        bool GetNextWord();
+        void Rebuild();
+        bool NextWord();
+        bool PrevWord();
         void OutputError(string massage);
         bool NextWordAndSkipSpace();
         bool Checking();

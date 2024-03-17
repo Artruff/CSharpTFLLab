@@ -97,14 +97,19 @@ struct s {
 
 ### Грамматика
 1. \<STRUCT> -> "struct" \<DEFINE>
-2. \<DEFINE> -> \<NAME> "{" [\<INIT>] "};"
-3. \<INIT> -> \<STRUCT> | \<ELEMENT>
-4. \<ELEMENT> -> \<TYPE> < NAME> ";"
-5. \<NAME> -> (letter | digit) \<NAME>
-6.  \<TYPE> -> "int" | "char" | "float" | "bool"
+2. \<DEFINE> -> _ \<ID>
+3. \<ID> -> letter \<IDREM>
+4. \<IDREM> -> letter \<IDREM> | "{" \<INIT>
+5. \<INIT> -> (("int" | "char" | "float" | "bool") \<IDNAME>) | (";" \<CLOSE>)
+6. \<ID> -> _ \<NAME>
+7. \<NAME> -> letter \<ENDNAME>
+8. \<ENDNAME> -> (letter \<ENDNAME>) | (";" \<INIT>) | (";" \<CLOSE>)
+9.  \<CLOSE> -> "}" \<END>
+10. \<END> -> ";"
 
 \<letter> → "a" | "b" | "c" | ... | "z" | "A" | "B" | "C" | ... | "Z" | 
 \<digit> → "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
 
 ### Классификация грамматики
 Автоматная грамматика
@@ -140,6 +145,10 @@ struct s {
 	float b
 	bool c
 }
+
+## Анализатор ошибок
+### Метой Айронса
+Алгоритм ищет следующую правильную лексему, игнорируя неправильные
 
 ### Схема лексического сканера
 ![Схема](Resources/StateMachine.png)
